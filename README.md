@@ -1,4 +1,4 @@
-# README Entrega semana 5
+# README Entrega semana 6
 
 ## Grupo 12
 - Leonardo Barrios 
@@ -7,7 +7,7 @@
 - Luis Alberto Cortes
 
 ## URL repositorio github
-https://github.com/JuanDaCalderon/GhostE2E-semana5
+https://github.com/JuanDaCalderon/GhostE2E-semana6
 
 
 ## Funcionalidades cubiertas
@@ -17,6 +17,9 @@ https://github.com/JuanDaCalderon/GhostE2E-semana5
 - Pages.
 - Staff
 - General settings
+
+## Notación Screenshots
+- {escenario}_p{xx}
 
 ## Escenarios de pruebas. Aplican para Kraken y Cypress
 
