@@ -1,7 +1,7 @@
 import configJson from '../../../config/config.json';
 describe('Asociar tag', () => {
     it('Se asocia un tag desde el inicio de sesión hasta la finalización de la creación', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)

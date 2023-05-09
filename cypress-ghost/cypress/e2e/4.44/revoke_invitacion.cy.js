@@ -2,7 +2,7 @@ import configJson from '../../../config/config.json';
 
 describe('revokar invitacion de usuario', () => {
     it('Se hace revokar invitacion de usuario', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)

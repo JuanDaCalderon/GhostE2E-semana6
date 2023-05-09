@@ -1,7 +1,7 @@
 import configJson from '../../../config/config.json';
 describe('invitar usuario', () => {
     it('Se hace invitacion a un usuario', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)

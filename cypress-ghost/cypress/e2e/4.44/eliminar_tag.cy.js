@@ -1,7 +1,7 @@
 import configJson from '../../../config/config.json';
 describe('Eliminar tag', () => {
     it('Se elimina un tag desde el inicio de sesión hasta la finalización de la eliminación', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)

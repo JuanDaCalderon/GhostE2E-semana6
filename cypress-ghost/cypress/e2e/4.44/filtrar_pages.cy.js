@@ -14,7 +14,7 @@ describe('Crear page publicado', () => {
     it('Se crea una page publicada - se valida que este en la lista', () => {
       
         //Given I navigate to page "http://localhost:2368/ghost"  
-        cy.visit(configJson.host)
+        cy.visit(configJson.host4_44)
         cy.wait(5000)
       
         //When I enter email "<Usuario1>"

@@ -1,7 +1,7 @@
 import configJson from '../../../config/config.json';
 describe('Ver internal tags', () => {
     it('Se revisar la pestaña internal tags desde el inicio de sesión hasta la finalización de la creación', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)

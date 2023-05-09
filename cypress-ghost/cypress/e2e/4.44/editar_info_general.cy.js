@@ -1,7 +1,7 @@
 import configJson from '../../../config/config.json';
 describe('edit info general', () => {
     it('Editar informacion titulo y descripcion de la pagina ', () => {
-      cy.visit(configJson.host)
+      cy.visit(configJson.host4_44)
       cy.wait(2000)
       cy.get('input[name="identification"]').type(configJson.user)
       cy.wait(2000)
