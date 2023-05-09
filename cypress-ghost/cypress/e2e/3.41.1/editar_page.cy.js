@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../config/config.json';
+import configJson from '../../../config/config.json';
 
 let pageData = {
     title: faker.name.findName(),
@@ -24,14 +24,17 @@ describe('Crear page publicado', () => {
         //And I click next
         cy.get('#ember12').click()
         cy.wait(5000)
+        cy.screenshot("editar_page_p1");
     
         //And I click Pages menu
         cy.get("a[href='#/pages/']").click();
         cy.wait(2000)
+        cy.screenshot("editar_page_p2");
 
         //And I click in New page 
         cy.get(".view-actions a[href='#/editor/page/']").click();
         cy.wait(2000)
+        cy.screenshot("editar_page_p3");
 
         //And I write in page title "Title"
         cy.get('.gh-editor-title.ember-text-area').type(pageData.title);
@@ -40,14 +43,17 @@ describe('Crear page publicado', () => {
         //And I click in Publish button And I wait for 6 seconds
         cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p4");
 
         //And I click Schedule button And I wait for 6 seconds
         cy.get('.gh-publishmenu-footer .gh-publishmenu-button').click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p5");
 
         //And I get back to page list I wait for 2 seconds
         cy.get("a[href='#/pages/']").click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p6");
 
         //Then I check Page with title "$$name_1" is in the list 
         cy.get("h3.gh-content-entry-title").contains(pageData.title).should('exist');
@@ -56,23 +62,28 @@ describe('Crear page publicado', () => {
         //And I select the Page with title "$$name_1" And I wait for 2 seconds
         cy.get("h3.gh-content-entry-title").contains(pageData.title).click()
         cy.wait(3000);
+        cy.screenshot("editar_page_p7");
 
         //And I write in Page title "$name_2" And I Write in Page text "$string_2"
         cy.get('.gh-editor-title.ember-text-area').clear().type(pageData.title_2);
         cy.get('.koenig-editor__editor-wrapper').clear().type(pageData.description_2);
         cy.wait(3000);
+        cy.screenshot("editar_page_p7");
 
         //And I click in Publish button And I wait for 6 seconds
         cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p68");
 
         //And I click Schedule button And I wait for 6 seconds
         cy.get('.gh-publishmenu-footer .gh-publishmenu-button').click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p9");
 
         //And I get back to page list I wait for 2 seconds
         cy.get("a[href='#/pages/']").click();
         cy.wait(3000);
+        cy.screenshot("editar_page_p10");
 
         //Then I check Post with title "$$name_1" is in the list 
         cy.get("h3.gh-content-entry-title").contains(pageData.title_2).should('exist');
