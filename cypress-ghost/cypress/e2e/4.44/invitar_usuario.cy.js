@@ -19,23 +19,25 @@ describe('invitar usuario', () => {
       cy.wait(2000)
       cy.screenshot("invitar_usuario_p1");
 
-      //And I click staff menu
-      cy.get('a[href="#/staff/"][class="ember-view"]').click()
+      //And I click members menu
+      cy.get('li a[href="#/members/"]').click()
       cy.wait(2000)
       cy.screenshot("invitar_usuario_p2");
 
       //And I click in invite people
-      cy.get('button[class="gh-btn gh-btn-green"]').click()
+      cy.get('a[href="#/members/new/"]').click()
       cy.wait(5000)
       cy.screenshot("invitar_usuario_p3");
 
       //And I enter email invitation
+      cy.get('input[name="name"]').type('pruebaName',{force: true})
+      cy.wait(2000)
       cy.get('input[name="email"]').type('prueba@prueba.com')
       cy.wait(2000)
       cy.screenshot("invitar_usuario_p4");
 
       //And I click send invitation now
-      cy.get('button[class="gh-btn gh-btn-green gh-btn-icon ember-view"]').click()
+      cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("invitar_usuario_p5");
 

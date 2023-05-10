@@ -20,6 +20,8 @@ describe('edit info general', () => {
       cy.screenshot("private_page_general_p1");
 
       //And I click Sttings general
+      cy.get('a[href="#/settings/"]').click()
+      cy.wait(2000)
       cy.get('a[href="#/settings/general/"]').click()
       cy.wait(2000)
       cy.screenshot("private_page_general_p2");

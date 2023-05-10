@@ -19,28 +19,29 @@ describe('editar usuario', () => {
       cy.wait(2000)
       cy.screenshot("editar_usuario_p1");
 
-      //And I click staff menu
-      cy.get('a[href="#/staff/"][class="ember-view"]').click()
+      //And I click members menu
+      cy.get('li a[href="#/members/"]').click()
       cy.wait(2000)
       cy.screenshot("editar_usuario_p2");
 
       //And I click in User pruebas
-      cy.get('a[href="#/staff/pruebas/"]').click()
+      cy.get('a[id="ember79"]').click()
       cy.wait(2000)
       cy.screenshot("editar_usuario_p3");
 
       //And I enter user name
-      cy.get('input[id="user-name"]').clear().type('pruebas automatizadas 2',{force: true})
+      cy.get('input[id="member-name"]').clear().type('pruebas automatizadas 2',{force: true})
+      cy.get('input[id="member-email"]').clear().type('pruebas2@pruebas.com',{force: true})
       cy.wait(2000)
       cy.screenshot("editar_usuario_p4");
 
       //And I click save
-      cy.get('button[class="gh-btn gh-btn-blue gh-btn-icon ember-view"]').click()
+      cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("editar_usuario_p5");
 
       //And I click staff menu
-      cy.get(".gh-canvas-title > a[href='#/staff/']").click();
+      cy.get('li a[href="#/members/"]').click();
       cy.wait(2000)
       cy.screenshot("editar_usuario_p6");
     })

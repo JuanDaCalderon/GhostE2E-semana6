@@ -20,23 +20,25 @@ describe('revokar invitacion de usuario', () => {
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p1");
 
-      //And I click en Staff
-      cy.get('a[href="#/staff/"][class="ember-view"]').click()
+      //And I click en Member menu
+      cy.get('li a[href="#/members/"]').click()
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p2");
 
       //And I click create invitacion
-      cy.get('button[class="gh-btn gh-btn-green"]').click()
+      cy.get('a[href="#/members/new/"]').click()
       cy.wait(5000)
       cy.screenshot("revoke_invitacion_p3");
 
       //And I enter email "prueba@prueba.com"
+      cy.get('input[name="name"]').type('pruebaName',{force: true})
+      cy.wait(2000)
       cy.get('input[name="email"]').type('prueba@prueba.com')
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p4");
 
       //And I click send invitation
-      cy.get('button[class="gh-btn gh-btn-green gh-btn-icon ember-view"]').click()
+      cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p5");
 
@@ -45,7 +47,11 @@ describe('revokar invitacion de usuario', () => {
       cy.wait(2000)
 
       //And I click revoke invitation
-      cy.get('a[href="#revoke"]').click()
+      cy.get('button[class="gh-btn gh-btn-icon icon-only gh-btn-action-icon closed ember-view"]').click()
+      cy.wait(2000)
+      cy.get('button[class="mr2"] span[class="red"]').click()
+      cy.wait(2000)
+      cy.get('button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p6");
     })
