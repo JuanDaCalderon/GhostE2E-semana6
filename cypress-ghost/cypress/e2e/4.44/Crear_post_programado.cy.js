@@ -22,7 +22,7 @@ describe('Crear post programado', () => {
         cy.get('input[name="password"]').type(configJson.password)
       
         //And I click next
-        cy.get('button[class="login gh-btn gh-btn-blue gh-btn-block gh-btn-icon ember-view"]').click()
+        cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
         cy.wait(5000)
         cy.screenshot("crear_post_programado_p1");
     

@@ -14,13 +14,13 @@ describe('Crear page publicado', () => {
         cy.wait(5000)
       
         //When I enter email "<Usuario1>"
-        cy.get('#ember7').type(configJson.user)
+        cy.get('input[name="identification"]').type(configJson.user)
       
         //And I enter password "<Password1>"
-        cy.get('#ember10').type(configJson.password)
+        cy.get('input[name="password"]').type(configJson.password)
       
         //And I click next
-        cy.get('#ember12').click()
+        cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
         cy.wait(5000)
         cy.screenshot("crear_page_programado_p1");
     

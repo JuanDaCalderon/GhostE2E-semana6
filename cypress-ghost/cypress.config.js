@@ -4,6 +4,6 @@ module.exports = {
       // implement node event listeners here
     },
     "projectId":"Pruebas Ghost",
-    "screenshotsFolder": "../screenshots/3.41.1/"
+    "screenshotsFolder": "../screenshots/4.44/"
   },
 };

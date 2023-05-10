@@ -7,7 +7,7 @@ describe('Eliminar tag', () => {
       cy.wait(2000)
       cy.get('input[name="password"]').type(configJson.password)
       cy.wait(2000)
-      cy.get('button[class="login gh-btn gh-btn-blue gh-btn-block gh-btn-icon ember-view"]').click()
+      cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("eliminar_tag_p1");
       cy.get('a[href="#/tags/"]').click()
