@@ -2,7 +2,7 @@ Feature: Eliminar tag
 
 @user1 @web
 Scenario: Se elimina un tag desde el inicio de sesión hasta la finalización de la eliminación
-    Given I navigate to page "http://localhost:2368/ghost"
+    Given I navigate to page "http://localhost:3002/ghost"
     And I wait for 5 seconds
     When I enter email "<Usuario1>"
     And I wait for 2 seconds
