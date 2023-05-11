@@ -2,7 +2,7 @@ Feature: Edita un post
 
 @user1 @web
 Scenario: Se crea un post - actualiza el title y la descripcion - validad que se encuentre en la lista con los nuevos valores 
-    Given I navigate to page "http://localhost:2368/ghost"
+    Given I navigate to page "<host4_44>" "ghost/#/signin"
     And I wait for 2 seconds
     When I enter email "<Usuario1>"
     And I enter password "<Password1>"
@@ -33,7 +33,7 @@ Scenario: Se crea un post - actualiza el title y la descripcion - validad que se
 
     And I click in Publish button
     And I wait for 6 seconds
-    And I click in Cancel button
+    And I click in update button
     And I wait for 2 seconds
     And I click in Posts
 

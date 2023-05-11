@@ -2,7 +2,7 @@ Feature: Crear un post programado
 
 @user1 @web
 Scenario: Se crea un post programado y se valida que se encuentre en la lista
-    Given I navigate to page "http://localhost:2368/ghost"
+    Given I navigate to page "<host4_44>" "ghost/#/signin"
     And I wait for 2 seconds
     When I enter email "<Usuario1>"
     And I enter password "<Password1>"
