@@ -12,6 +12,9 @@ class PagesPage {
         settingsPageMenu: () => cy.get('button.post-settings'),
         deleteButtonPageMenu: () => cy.get('button.settings-menu-delete-button'),
         deleteButtonModal: () => cy.get('.modal-content > .modal-footer > .gh-btn-red'),
+
+        buttonFilter: () => cy.get('div.gh-contentfilter-menu.gh-contentfilter-type'),
+        draftFilterOption: () => cy.get('div.ember-basic-dropdown-content.ember-power-select-dropdown ul.ember-power-select-options li:nth-child(2)')
     }
 
     goToAnchorButtonPage() {
@@ -62,7 +65,7 @@ class PagesPage {
         cy.wait(1000)
     }
 
-    deletePage(){
+    deletePage() {
         cy.wait(1000)
         this.elements.settingsPageMenu().click();
         this.elements.deleteButtonPageMenu().click();
@@ -71,7 +74,7 @@ class PagesPage {
         cy.wait(1000)
     }
 
-    clickOnEspecificPage(page){
+    clickOnEspecificPage(page) {
         cy.wait(1000)
         page.click();
         cy.wait(1000)
@@ -81,6 +84,13 @@ class PagesPage {
         cy.wait(1000)
         pageToBeClean.click();
         this.deletePage();
+        cy.wait(1000)
+    }
+
+    goToDraftFilter() {
+        cy.wait(1000)
+        this.elements.buttonFilter().click();
+        this.elements.draftFilterOption().click();
         cy.wait(1000)
     }
 }
