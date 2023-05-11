@@ -2,7 +2,7 @@ Feature: Invitar usuario
 
 @user1 @web
 Scenario: Se inicia sesion, se invita un usuario y luego revoka su invitacion
-    Given I navigate to page "http://localhost:2368/ghost"
+    Given I navigate to page "http://localhost:3002/ghost"
     And I wait for 5 seconds
     When I enter email "<Usuario1>"
     And I wait for 2 seconds
@@ -26,30 +26,3 @@ Scenario: Se inicia sesion, se invita un usuario y luego revoka su invitacion
     And I wait for 2 seconds
     And I click revoke
     And I wait for 2 seconds
-    
-    #And I click tags
-    #And I wait for 2 seconds
-    #And I click pruebaCreacion
-    #And I wait for 2 seconds
-    #When I enter tagname "<tagnameeditado1>"
-    #And I wait for 2 seconds
-    #When I enter tagdescription "<tagdescriptioneditado1>"
-    #And I wait for 2 seconds
-    #And I click savetag
-    #And I wait for 2 seconds
-    #And I click tags
-    #And I wait for 2 seconds
-    #And I click pruebaCreacion
-    #And I wait for 2 seconds
-    #And I click eliminartag
-    #And I wait for 2 seconds
-    #And I click confirmareliminaciontag
-    #And I wait for 2 seconds
-
-
-    #And I click pagina
-    #And I wait for 2 seconds
-    #And I click nuevapagina
-    #And I wait for 2 seconds
-    #When I enter titulopagina "<titulopagina1>"
-    #And I wait for 2 seconds

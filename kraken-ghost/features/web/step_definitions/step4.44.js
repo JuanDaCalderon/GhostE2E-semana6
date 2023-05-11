@@ -328,12 +328,12 @@ Then('I check Post with title {kraken-string} is not in the list', async functio
 /* END POST steps */
 
 When('I click staff', async function() {
-    let element = await this.driver.$('a[href="#/staff/"]');
+    let element = await this.driver.$('a[href="#/members/"]');
     return await element.click();
 })
 
 When('I click invite', async function() {
-    let element = await this.driver.$('button[class="gh-btn gh-btn-green"]');
+    let element = await this.driver.$('a[href="#/members/new/"]');
     return await element.click();
 })
 
@@ -352,7 +352,7 @@ When('I select role {kraken-string}', async function (role) {
 });
 
 When('I click invitenow', async function() {
-    let element = await this.driver.$('button[class="gh-btn gh-btn-green gh-btn-icon ember-view"]');
+    let element = await this.driver.$('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]');
     return await element.click();
 })
 
@@ -377,8 +377,10 @@ When('I click revoke', async function() {
 })
 
 When('I click General', async function() {
-    let element = await this.driver.$('a[href="#/settings/general/"]');
-    return await element.click();
+    let element = await this.driver.$('a[href="#/settings/"]');
+    await element.click();
+    element = await this.driver.$('a[href="#/settings/general/"]');
+    return  await element.click();
 })
 
 When('I click expand', async function() {
@@ -387,17 +389,17 @@ When('I click expand', async function() {
 })
 
 When('I enter title {kraken-string}', async function (title) {
-    let element = await this.driver.$('div.gh-setting-content-extended div.form-group .ember-text-field');
+    let element = await this.driver.$('div.gh-setting-content-extended div.form-group input.ember-text-field.gh-input.ember-view');
     return await element.setValue(title);
 });
 
 When('I enter descripcion {kraken-string}', async function (descripcion) {
-    let element= await this.driver.$('div.gh-setting-content-extended div.description-container .ember-text-field');
+    let element= await this.driver.$('div.gh-setting-content-extended div.description-container input.ember-text-field.gh-input.ember-view');
     return await element.setValue(descripcion);
 });
 
 When('I click savegeneral', async function() {
-    let element = await this.driver.$('button[class="gh-btn gh-btn-blue gh-btn-icon ember-view"]');
+    let element = await this.driver.$('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]');
     return await element.click();
 })
 

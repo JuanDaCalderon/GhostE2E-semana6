@@ -1,4 +1,4 @@
-Feature: Editar informacion general
+Feature: Invitar usuario
 
 @user1 @web
 Scenario: Se inicia sesion y se va al menu staff para invitar un usuario
@@ -10,13 +10,13 @@ Scenario: Se inicia sesion y se va al menu staff para invitar un usuario
     And I wait for 2 seconds
     And I click next
     And I wait for 2 seconds
-    And I click General
+    And I click staff
     And I wait for 2 seconds
-    And I click expand
+    And I click invite
     And I wait for 2 seconds
-    And I enter title "<titulo_general>"
+    When I enter mailinvita "<invitemail>"
     And I wait for 2 seconds
-    And I enter descripcion "<descripcion_general>"
+    When I select role "<role>"
     And I wait for 2 seconds
-    And I click savegeneral
-    And I wait for 2 seconds
+    And I click invitenow
+    And I wait for 5 seconds
