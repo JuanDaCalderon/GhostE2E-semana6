@@ -51,13 +51,13 @@ describe('Eliminar post ', () => {
         cy.wait(6000);
         cy.screenshot("eliminar_post_p6");
 
-        //And I click in Cancel button And I wait for 2 seconds
-        cy.get('.gh-btn.gh-btn-outline.gh-btn-link').click();
+        //And I click in publish button And I wait for 2 seconds
+        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
         cy.wait(2000);
         cy.screenshot("eliminar_post_p7");
     
         //And I click in Posts And  I wait for 2 seconds
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("eliminar_post_p8");
 
@@ -71,7 +71,7 @@ describe('Eliminar post ', () => {
         cy.screenshot("eliminar_post_p10");
     
         //And I delete the post And I wait for 5 seconds   
-        cy.get("button.post-settings").click();
+        cy.get("button.settings-menu-toggle").click();
         cy.get("button.settings-menu-delete-button").click();
         cy.wait(5000);
         cy.screenshot("eliminar_post_p11");
