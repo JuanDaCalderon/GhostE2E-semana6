@@ -1,61 +1,56 @@
 import { faker } from '@faker-js/faker';
 import configJson from '../../../../config/config.json';
 import loginPage from "../../../page-object/login";
-
+import PostsPage, { publishPost } from "../../../page-object/posts";
 
 let postData = {
     title: faker.name.fullName(),
     description: faker.name.fullName()
 }
 
+const nameScreenshots = 'crear_post_publicado_p';
+
 describe('Crear post publicado', () => {
-
-
     it('Se crea un post publicado - se valida que este en la lista', () => {
       
-        //Given 
+        let i = 0;
+
+        //Given
         cy.visit(configJson.host4_44);
         loginPage.login(configJson.user, configJson.password);
-        cy.screenshot("crear_post_publicado_p1");
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
     
-        //And I click Posts menu
-        cy.get(".gh-nav-list-new > a[href='#/posts/']").click();
-        cy.wait(2000)
-        cy.screenshot("crear_post_publicado_p2");
+        //When I click Posts menu  
+        PostsPage.goToAnchorButtonPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
         //And I click in New post 
-        cy.get('.gh-nav-new-post').click();
-        cy.wait(2000)
-        cy.screenshot("crear_post_publicado_p3");
+        PostsPage.goToNewPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I write in post title An I write in post description 
-        cy.get('.gh-editor-title').type(postData.title);
-        cy.get('.koenig-editor__editor').type(postData.description);
+        //And I write in post title And I write in post description  
+        PostsPage.typeTitleAndDescription(postData.title, postData.description);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
      
-        //And I click in Publish button And I wait for 2 seconds
-        cy.get('.gh-publishmenu').click();
-        cy.wait(2000);
-        cy.screenshot("crear_post_publicado_p4");
+        //And I click in Publish button
+        PostsPage.openPulishDropDown();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click Schedule button And I wait for 2 seconds
-        cy.get('.gh-publishmenu-button').click();
-        cy.wait(2000);
-        cy.screenshot("crear_post_publicado_p5");
-
-        //And I click in publish button And I wait for 2 seconds
-        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
-        cy.wait(6000);
-        cy.screenshot("crear_post_publicado_p6");
+        //And I click Schedule button 
+        PostsPage.publishPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
+        
+        //And I click in publish button 
+        PostsPage.publishPostModal();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
     
-        //And I click in Posts And  I wait for 2 seconds
-        cy.get('.ml3').click();
-        cy.wait(2000);
-        cy.screenshot("crear_post_publicado_p7");
+        //And I click in Posts 
+        PostsPage.goToListPostView();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
         //And I click published posts menu And I wait for 5 seconds
-        cy.get("a[href='#/posts/?type=published']").click();
-        cy.wait(2000);
-        cy.screenshot("crear_post_publicado_p8");
+        PostsPage.goToPublishedFilter();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
         //Then I check Post with title "$$dataPost.titel" is in the list 
         cy.get("h3.gh-content-entry-title").contains(postData.title).should('exist');

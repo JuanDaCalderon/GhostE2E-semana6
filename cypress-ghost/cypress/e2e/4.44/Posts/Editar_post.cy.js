@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import configJson from '../../../../config/config.json';
 import loginPage from "../../../page-object/login";
+import PostsPage from "../../../page-object/posts";
 
 let postData = {
     title_1: faker.name.fullName(),
@@ -9,84 +10,73 @@ let postData = {
     description_2: faker.name.fullName()
 }
 
+const nameScreenshots = 'editar_post_p';
+
 describe('Editar post ', () => {
     it('Se crea un post publicado - Actualiza title y descripcion - Valida que este en la lista con los valores actualizados', () => {
-      
-        //Given I navigate to page "http://localhost:2368/ghost"  
+        let i = 0;
+
+        //Given
         cy.visit(configJson.host4_44);
         loginPage.login(configJson.user, configJson.password);
-         cy.screenshot("editar_post_p1");
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
     
-        //And I click Posts menu
-        cy.get(".gh-nav-list-new > a[href='#/posts/']").click();
-        cy.wait(2000)
-        cy.screenshot("editar_post_p2");
+        //When I click Posts menu  
+        PostsPage.goToAnchorButtonPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
         //And I click in New post 
-        cy.get('.gh-nav-new-post').click();
-        cy.wait(2000)
-        cy.screenshot("editar_post_p3");
+        PostsPage.goToNewPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I write in post title An I write in post description  
-        cy.get('.gh-editor-title').type(postData.title_1);
-        cy.get('.koenig-editor__editor').type(postData.description_1);
-        cy.screenshot("editar_post_p4");
+        //And I write in post title And I write in post description  
+        PostsPage.typeTitleAndDescription(postData.title_1, postData.description_1);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
+     
+        //And I click in Publish button
+        PostsPage.openPulishDropDown();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
+
+        //And I click Schedule button 
+        PostsPage.publishPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
+        
+        //And I click in publish button 
+        PostsPage.publishPostModal();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
     
-        //And I click in Publish And I wait for 2 seconds
-        cy.get('.gh-publishmenu').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p5");
+        //And I click in Posts 
+        PostsPage.goToListPostView();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click publish button And I wait for 6 seconds
-        cy.get('.gh-publishmenu-button').click();
-        cy.wait(6000);
-        cy.screenshot("editar_post_p6");
+        //And I click published posts menu 
+        PostsPage.goToPublishedFilter();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in Cancel button And I wait for 2 seconds
-        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p7");
-    
-        //And I click in Posts And  I wait for 2 seconds
-        cy.get('.ml3').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p8");
+        //And I select the post with title "$$postData.title_1" 
+        PostsPage.elements.postTitleFieldList().contains(postData.title_1).click();
 
-        //And I click published posts menu And I wait for 5 seconds
-        cy.get("a[href='#/posts/?type=published']").click();
-        cy.wait(5000);
-        cy.screenshot("editar_post_p9");
-
-        //And I select the post with title "$$postData.title_1" And I wait for 2 seconds
-        cy.get("h3.gh-content-entry-title").contains(postData.title_1).click()
-        cy.wait(2000);
-        cy.screenshot("editar_post_p10");
-    
         //And I write in post title "$postData.title_2" And I Write in post text "$postData.description_2"
-        cy.get('.gh-editor-title').clear().type(postData.title_2);
-        cy.get('.koenig-editor__editor').clear().type(postData.description_2);
+        PostsPage.typeTitleAndDescription(postData.title_2, postData.description_2);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in Publish And I wait for 2 seconds
-        cy.get('.gh-publishmenu').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p11");
+        //And I click in Publish button
+        PostsPage.openPulishDropDown();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in Publish button And I wait for 6 seconds
-        cy.get('.gh-publishmenu-button').click();
-        cy.wait(6000);
-        cy.screenshot("editar_post_p12");
-
-        //And I click in Cancel button And I wait for 2 seconds
-        cy.get('button[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p13");
+        //And I click Schedule button 
+        PostsPage.publishPost();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
+        
+        //And I click in publish button 
+        PostsPage.closeScheduleModal();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
     
-        //And I click in Posts
-        cy.get('.ml3').click();
-        cy.wait(2000);
-        cy.screenshot("editar_post_p14");
+        //And I click in Posts 
+        PostsPage.goToListPostView();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //Then I check Post with title "$$appData.titel_2" is in the list 
+        //Then I check Post with title "$$appData.titl2_2" is in the list 
         cy.get("h3.gh-content-entry-title").contains(postData.title_2).should('exist');
 
         });

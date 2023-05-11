@@ -39,16 +39,17 @@ describe('Crear post borrador', () => {
         //And I write in post title An I write in post description  
         cy.get('.gh-editor-title').type(postData.title);
         cy.get('.koenig-editor__editor').type(postData.description);
+        cy.screenshot("crear_post_borrador_p4");
         
         //And I click in Posts And  I wait for 2 seconds
         cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
         cy.wait(2000);
-        cy.screenshot("crear_post_borrador_p4");
+        cy.screenshot("crear_post_borrador_p5");
 
         //And I click published posts menu And I wait for 5 seconds
         cy.get("a[href='#/posts/?type=draft']").click();
         cy.wait(5000);
-        cy.screenshot("crear_post_borrador_p5");
+        cy.screenshot("crear_post_borrador_p6");
 
         //Then I check Post with title "$$dataPost.titel" is in the list 
         cy.get("h3.gh-content-entry-title").contains(postData.title).should('exist');
