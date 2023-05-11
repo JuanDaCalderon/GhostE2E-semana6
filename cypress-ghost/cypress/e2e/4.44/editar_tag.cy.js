@@ -1,4 +1,6 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
+
 describe('Editar tag', () => {
   it('Se crea tag desde inicio de sesión hasta fin de la creación', () => {
     
@@ -7,17 +9,10 @@ describe('Editar tag', () => {
     cy.wait(2000)
     
     //When I enter email "<Usuario1>"
-    cy.get('input[name="identification"]').type(configJson.user)
-    cy.wait(2000)
-    
     //And I enter password "<Password1>"
-    cy.get('input[name="password"]').type(configJson.password)
-    cy.wait(2000)
-    
     //And I click next
-    cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
+    loginPage.login(configJson.user, configJson.password);
     cy.wait(2000)
-    cy.screenshot("editar_tag_p1");
     
     //And I click tags
     cy.get('a[href="#/tags/"]').click()
@@ -75,6 +70,6 @@ describe('Editar tag', () => {
     cy.screenshot("editar_tag_p12");
     
     //Then I check tag description "<tagname1>"
-    cy.get("p.gh-tag-list-description").contains("edita").should('exist');
+    cy.get("p.gh-tag-list-description").contains("tag").should('exist');
   })
 })

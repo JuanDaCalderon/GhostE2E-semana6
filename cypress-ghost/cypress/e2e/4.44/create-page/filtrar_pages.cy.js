@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../../config/config.json';
+import configJson from '../../../../config/config.json';
+import loginPage from "../../../page-object/login";
+import PagesPage from "../../../page-object/pages";
 
 let pageData = {
     title: faker.name.findName(),
@@ -10,112 +12,59 @@ let pageData = {
     descriptionSchedule: faker.name.findName(),
 }
 
+const nameScreenshots = 'filtrar_pages_p';
+
 describe('Crear page publicado', () => {
     it('Se crea una page publicada - se valida que este en la lista', () => {
-      
-        //Given I navigate to page "http://localhost:2368/ghost"  
-        cy.visit(configJson.host4_44)
-        cy.wait(5000)
-      
-        //When I enter email "<Usuario1>"
-        cy.get('input[name="identification"').type(configJson.user)
-      
-        //And I enter password "<Password1>"
-        cy.get('input[name="password"').type(configJson.password)
-      
-        //And I click next
-        cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
-        cy.wait(5000)
-        cy.screenshot("filtrar_pages_p1");
-    
-        //And I click Pages menu
-        cy.get("a[href='#/pages/']").click();
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p2");
 
-        //And I click in New page 
-        cy.get(".view-actions a[href='#/editor/page/']").click();
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p3");
+        let i = 0
+        // Given
+        cy.visit(configJson.host4_44);
+        loginPage.login(configJson.user, configJson.password);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I write in page title "Title"
-        cy.get('.gh-editor-title.ember-text-area').type(pageData.title);
-        cy.get('.koenig-editor__editor-wrapper').type(pageData.description);
-        cy.screenshot("filtrar_pages_p4");
-     
-        //And I click in Publish button And I wait for 6 seconds
-        cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p5");
+        // When
+        PagesPage.goToNewPageFromListPageView();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click Schedule button And I wait for 6 seconds
-        cy.get('.gh-publishmenu-footer .gh-publishmenu-button').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p6");
+        PagesPage.typeTitleAndDescription(pageData.title, pageData.description);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I get back to page list I wait for 2 seconds
-        cy.get("a[href='#/pages/']").click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p7");
+        PagesPage.elements.dropdownPublish = () => cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger');
+        PagesPage.publishPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in New page 
-        cy.get(".view-actions a[href='#/editor/page/']").click();
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p8");
+        PagesPage.goToAnchorButtonPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I write in page title "Title"
-        cy.get('.gh-editor-title.ember-text-area').type(pageData.titleDraft);
-        cy.get('.koenig-editor__editor-wrapper').type(pageData.descriptionDraft);
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p9");
+        PagesPage.goToNewPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I get back to page list I wait for 2 seconds
-        cy.get("a[href='#/pages/']").click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p10");
+        PagesPage.typeTitleAndDescription(pageData.titleDraft, pageData.descriptionDraft);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in New page 
-        cy.get(".view-actions a[href='#/editor/page/']").click();
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p11");
+        PagesPage.goToAnchorButtonPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I write in page title "Title"
-        cy.get('.gh-editor-title.ember-text-area').type(pageData.titleSchedule);
-        cy.get('.koenig-editor__editor-wrapper').type(pageData.descriptionSchedule);
-        cy.wait(2000)
-        cy.screenshot("filtrar_pages_p12");
+        PagesPage.goToNewPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I click in Publish button And I wait for 6 seconds
-        cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p13");
+        PagesPage.typeTitleAndDescription(pageData.titleSchedule, pageData.descriptionSchedule);
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I publish it schedule I wait for 6 seconds
-        cy.get('.gh-publishmenu-section div.gh-publishmenu-radio:nth-child(2) .gh-publishmenu-radio-content .gh-publishmenu-radio-label').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p14");
-        cy.get('.gh-publishmenu-footer .gh-publishmenu-button').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p15");
+        PagesPage.elements.dropdownPublish = () => cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger');
+        PagesPage.schedulePage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I get back to page list I wait for 2 seconds
-        cy.get("a[href='#/pages/']").click();
-        cy.wait(3000);
-        cy.screenshot("filtrar_pages_p16");
+        PagesPage.goToAnchorButtonPage();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I filter type and I wait for 2 seconds
-        cy.get('div.gh-contentfilter-menu.gh-contentfilter-type').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p17");
+        PagesPage.goToDraftFilter();
+        cy.screenshot(`${nameScreenshots}${i += 1}`);
 
-        //And I filter type and I wait for 2 seconds
-        cy.get('div.ember-basic-dropdown-content.ember-power-select-dropdown ul.ember-power-select-options li:nth-child(2)').click();
-        cy.wait(2000);
-        cy.screenshot("filtrar_pages_p19");
-
-        //Then I check Page with title "$$name_1" is in the list 
+        // Then 
         cy.get("h3.gh-content-entry-title").contains(pageData.titleDraft).should('exist');
-        });
+    });
 
-    })
-  
+})
+

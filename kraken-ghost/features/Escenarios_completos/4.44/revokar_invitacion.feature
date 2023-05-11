@@ -14,7 +14,7 @@ Scenario: Se inicia sesion, se invita un usuario y luego revoka su invitacion
     And I wait for 2 seconds
     And I click invite
     And I wait for 2 seconds
-    When I enter mailinvita "<invitemail>"
+    When I enter mailinvita "<name>" "<invitemail>"
     And I wait for 2 seconds
     When I select role "<role>"
     And I wait for 2 seconds
