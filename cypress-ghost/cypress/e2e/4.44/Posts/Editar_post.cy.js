@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../../config/config.json'
+import configJson from '../../../../config/config.json';
+import loginPage from "../../../page-object/login";
 
 let postData = {
     title_1: faker.name.fullName(),
@@ -9,23 +10,11 @@ let postData = {
 }
 
 describe('Editar post ', () => {
-
-
     it('Se crea un post publicado - Actualiza title y descripcion - Valida que este en la lista con los valores actualizados', () => {
       
         //Given I navigate to page "http://localhost:2368/ghost"  
-        cy.visit(configJson.host4_44)
-        cy.wait(5000)
-      
-         //When I enter email "<Usuario1>"
-         cy.get('input[name="identification"').type(configJson.user)
-      
-         //And I enter password "<Password1>"
-         cy.get('input[name="password"').type(configJson.password)
-       
-         //And I click next
-         cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
-         cy.wait(5000)
+        cy.visit(configJson.host4_44);
+        loginPage.login(configJson.user, configJson.password);
          cy.screenshot("editar_post_p1");
     
         //And I click Posts menu
@@ -54,12 +43,12 @@ describe('Editar post ', () => {
         cy.screenshot("editar_post_p6");
 
         //And I click in Cancel button And I wait for 2 seconds
-        cy.get('.gh-btn.gh-btn-outline.gh-btn-link').click();
+        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
         cy.wait(2000);
         cy.screenshot("editar_post_p7");
     
         //And I click in Posts And  I wait for 2 seconds
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("editar_post_p8");
 
@@ -88,12 +77,12 @@ describe('Editar post ', () => {
         cy.screenshot("editar_post_p12");
 
         //And I click in Cancel button And I wait for 2 seconds
-        cy.get('.gh-btn.gh-btn-outline.gh-btn-link').click();
+        cy.get('button[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]').click();
         cy.wait(2000);
         cy.screenshot("editar_post_p13");
     
         //And I click in Posts
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("editar_post_p14");
 

@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../../config/config.json'
+import configJson from '../../../../config/config.json';
+import loginPage from "../../../page-object/login";
 
 let postData = {
     title: faker.name.fullName(),
@@ -11,19 +12,9 @@ describe('Crear post borrador', () => {
 
     it('Se crea un post borrador - se valida que este en la lista', () => {
       
-        //Given I navigate to page "http://localhost:2368/ghost"  
-        cy.visit(configJson.host4_44)
-        cy.wait(5000)
-      
-        //When I enter email "<Usuario1>"
-        cy.get('input[name="identification"').type(configJson.user)
-      
-        //And I enter password "<Password1>"
-        cy.get('input[name="password"').type(configJson.password)
-      
-        //And I click next
-        cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
-        cy.wait(5000)
+        //Given
+        cy.visit(configJson.host4_44);
+        loginPage.login(configJson.user, configJson.password);
         cy.screenshot("crear_post_borrador_p1");
     
         //And I click Posts menu

@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../../config/config.json'
+import configJson from '../../../../config/config.json';
+import loginPage from "../../../page-object/login";
 
 let postData = {
     title: faker.name.fullName(),
@@ -11,19 +12,9 @@ describe('Crear post programado', () => {
 
     it('Se crea un post programado - se valida que este en la lista', () => {
       
-        //Given I navigate to page "http://localhost:2368/ghost"  
-        cy.visit(configJson.host4_44)
-        cy.wait(5000)
-      
-        //When I enter email "<Usuario1>"
-        cy.get('input[name="identification"]').type(configJson.user)
-      
-        //And I enter password "<Password1>"
-        cy.get('input[name="password"]').type(configJson.password)
-      
-        //And I click next
-        cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
-        cy.wait(5000)
+        //Given I navigate to page "http://localhost:3002/ghost"  
+        cy.visit(configJson.host4_44);
+        loginPage.login(configJson.user, configJson.password);
         cy.screenshot("crear_post_programado_p1");
     
         //And I click Posts menu
@@ -56,12 +47,12 @@ describe('Crear post programado', () => {
         cy.screenshot("crear_post_programado_p6");
 
         //And I click in Cancel button And I wait for 2 seconds
-        cy.get('.gh-btn.gh-btn-outline.gh-btn-link').click();
+        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
         cy.wait(6000);
         cy.screenshot("crear_post_programado_p7");
     
         //And I click in Posts And  I wait for 2 seconds
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("crear_post_programado_p8");
 
