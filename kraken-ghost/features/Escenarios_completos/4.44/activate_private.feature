@@ -2,7 +2,7 @@ Feature: Activar / desactivar  privacidad general
 
 @user1 @web
 Scenario: Se inicia sesion y se va al menu general y se activa / desactiva la privacidad
-    Given I navigate to page "http://localhost:2368/ghost"
+    Given I navigate to page "http://localhost:3002/ghost"
     And I wait for 5 seconds
     When I enter email "<Usuario1>"
     And I wait for 2 seconds

@@ -18,5 +18,7 @@
     "page_title_draft": "pagina-3-draft",
     "edicion_description": "descripcion nueva",
     "tagpruebaasociar": "AAAAAAAAAA Tag prueba",
-    "tagdescripciónpruebaasociar": "Se asocia un tag de prueba para validar la funcionalidad"
+    "tagdescripciónpruebaasociar": "Se asocia un tag de prueba para validar la funcionalidad",
+    "titulo_general":"pruebas automatizadas2",
+    "descripcion_general":"descripcion automatizadas2"
 }
