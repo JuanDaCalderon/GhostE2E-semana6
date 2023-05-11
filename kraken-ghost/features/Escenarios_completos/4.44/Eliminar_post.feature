@@ -11,6 +11,8 @@ Scenario: Se crea un post y se elimina validando que ya no se encuentra en la li
     And I click next
     And I wait for 5 seconds
     
+    And I take screenshot
+
     And I click in New post
     And I wait for 2 seconds
     And I write in post title "$name_1"

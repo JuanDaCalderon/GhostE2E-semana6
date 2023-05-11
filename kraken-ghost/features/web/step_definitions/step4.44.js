@@ -464,3 +464,6 @@ Then('I check tag description {kraken-string}', async function (differenttagdesc
     return expect(tagdescription).to.not.equal(differenttagdescription);
 });
 
+When('I take a screenshot', async function() {
+    page.save_screenshot('prueba.png')
+});
