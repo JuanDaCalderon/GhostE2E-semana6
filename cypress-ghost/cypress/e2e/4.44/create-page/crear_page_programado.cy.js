@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import configJson from '../../../config/config.json';
+import configJson from '../../../../config/config.json';
 
 let pageData = {
     title: faker.name.findName(),
@@ -22,17 +22,17 @@ describe('Crear page publicado', () => {
         //And I click next
         cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
         cy.wait(5000)
-        cy.screenshot("crear_page_p1");
+        cy.screenshot("crear_page_programado_p1");
     
         //And I click Pages menu
         cy.get("a[href='#/pages/']").click();
         cy.wait(2000)
-        cy.screenshot("crear_page_p2");
+        cy.screenshot("crear_page_programado_p2");
 
         //And I click in New page 
         cy.get(".view-actions a[href='#/editor/page/']").click();
         cy.wait(2000)
-        cy.screenshot("crear_page_p3");
+        cy.screenshot("crear_page_programado_p3");
 
         //And I write in page title "Title"
         cy.get('.gh-editor-title.ember-text-area').type(pageData.title);
@@ -41,17 +41,20 @@ describe('Crear page publicado', () => {
         //And I click in Publish button And I wait for 6 seconds
         cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger').click();
         cy.wait(6000);
-        cy.screenshot("crear_page_p4");
+        cy.screenshot("crear_page_programado_p4");
 
-        //And I click Schedule button And I wait for 6 seconds
+        //And I publish it schedule I wait for 6 seconds
+        cy.get('.gh-publishmenu-section div.gh-publishmenu-radio:nth-child(2) .gh-publishmenu-radio-content .gh-publishmenu-radio-label').click();
+        cy.wait(6000);
+        cy.screenshot("crear_page_programado_p5");
         cy.get('.gh-publishmenu-footer .gh-publishmenu-button').click();
         cy.wait(6000);
-        cy.screenshot("crear_page_p5");
+        cy.screenshot("crear_page_programado_p6");
 
         //And I get back to page list I wait for 2 seconds
         cy.get("a[href='#/pages/']").click();
         cy.wait(6000);
-        cy.screenshot("crear_page_p6");
+        cy.screenshot("crear_page_programado_p7");
 
         //Then I check Page with title "$$name_1" is in the list 
         cy.get("h3.gh-content-entry-title").contains(pageData.title).should('exist');
