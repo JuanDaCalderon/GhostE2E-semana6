@@ -63,7 +63,7 @@ describe('Crear post publicado', () => {
         cy.screenshot("crear_post_publicado_p8");
 
         //And I click published posts menu And I wait for 5 seconds
-        cy.get("a[href='#/posts/?type=published']").click();
+        cy.get("a[title='Published']").click();
         cy.wait(2000);
         cy.screenshot("crear_post_publicado_p9");
 
