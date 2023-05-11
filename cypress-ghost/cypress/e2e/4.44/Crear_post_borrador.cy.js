@@ -41,7 +41,7 @@ describe('Crear post borrador', () => {
         cy.get('.koenig-editor__editor').type(postData.description);
         
         //And I click in Posts And  I wait for 2 seconds
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("crear_post_borrador_p4");
 

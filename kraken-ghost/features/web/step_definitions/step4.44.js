@@ -338,8 +338,10 @@ When('I click invite', async function() {
 })
 
 
-When('I enter mailinvita {kraken-string}', async function (emailinvita) {
-    let element = await this.driver.$('input[name="email"]');
+When('I enter mailinvita {kraken-string} {kraken-string}', async function (name,emailinvita) {
+    let element = await this.driver.$('input[name="name"]');
+    await element.setValue(name);
+    element = await this.driver.$('input[name="email"]');
     return await element.setValue(emailinvita);
 });
 
@@ -372,7 +374,11 @@ When('I click savename', async function() {
 })
 
 When('I click revoke', async function() {
-    let element = await this.driver.$('a[href="#revoke"]');
+    let element = await this.driver.$('a[id="ember49"]');
+    await element.click();
+    element = await this.driver.$('button[class="gh-btn gh-btn-icon icon-only gh-btn-action-icon closed ember-view"]');
+    await element.click();
+    element = await this.driver.$('li button.mr2 span.red');
     return await element.click();
 })
 
@@ -466,3 +472,6 @@ Then('I check tag description {kraken-string}', async function (differenttagdesc
     return expect(tagdescription).to.not.equal(differenttagdescription);
 });
 
+When('I take a screenshot', async function() {
+    page.save_screenshot('prueba.png')
+});

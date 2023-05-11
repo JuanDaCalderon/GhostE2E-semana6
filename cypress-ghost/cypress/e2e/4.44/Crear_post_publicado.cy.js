@@ -51,13 +51,13 @@ describe('Crear post publicado', () => {
         cy.wait(2000);
         cy.screenshot("crear_post_publicado_p5");
 
-        //And I click in Cancel button And I wait for 2 seconds
-        cy.get('.gh-btn.gh-btn-outline.gh-btn-link').click();
+        //And I click in publish button And I wait for 2 seconds
+        cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]').click();
         cy.wait(6000);
         cy.screenshot("crear_post_publicado_p6");
     
         //And I click in Posts And  I wait for 2 seconds
-        cy.get('.blue.link.fw4.flex.items-center.ember-view').click();
+        cy.get('.ml3').click();
         cy.wait(2000);
         cy.screenshot("crear_post_publicado_p7");
 

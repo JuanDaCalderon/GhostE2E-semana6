@@ -1,4 +1,6 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
+
 describe('Ver internal tags', () => {
     it('Se revisar la pestaña internal tags desde el inicio de sesión hasta la finalización de la creación', () => {
       
@@ -7,17 +9,10 @@ describe('Ver internal tags', () => {
       cy.wait(2000)
       
       //When I enter email "<Usuario1>"
-      cy.get('input[name="identification"]').type(configJson.user)
-      cy.wait(2000)
-      
       //And I enter password "<Password1>"
-      cy.get('input[name="password"]').type(configJson.password)
-      cy.wait(2000)
-      
       //And I click next
-      cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
+      loginPage.login(configJson.user, configJson.password);
       cy.wait(2000)
-      cy.screenshot("ver_internal_tags_p1");
       
       //And I click tags
       cy.get('a[href="#/tags/"]').click()
