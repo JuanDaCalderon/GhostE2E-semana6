@@ -3,7 +3,7 @@ const Compare = require('./compare');
 
 const { browsers, options, V3_41_1, V4_44 } = config;
 
-let screenshotsRoot = 'imagenes';
+let screenshotsRoot = '../screenshots';
 
 async function executeTestForEliminarPages() {
   const eliminar_page = new Compare(screenshotsRoot, 'eliminar-page', browsers, options, V3_41_1, V4_44)
