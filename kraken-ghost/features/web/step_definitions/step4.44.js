@@ -305,8 +305,14 @@ When('I click confirm delete post', async function () {
     return await element.click();
 });
 
+When('I click in update button', async function () {
+    let element = await this.driver.$(".gh-btn-outline");
+    return await element.click();
+
+});
+
 When('I delete the post', async function () {
-    let menuButton = await this.driver.$("button.post-settings");
+    let menuButton = await this.driver.$(".settings-menu-toggle");
     await menuButton.click();
     let deleteButton = await this.driver.$("button.settings-menu-delete-button");
     return await deleteButton.click();
