@@ -95,6 +95,7 @@ class Compare {
       ${resultInfo.map((dataInfo, index) => {
       return `
                 <div class=" btitle">
+                  <h1>${dataInfo[b].compareFile}</h1>
                   <p>Data: ${JSON.stringify(dataInfo)}</p>
                 </div>
                 <div class="imgline">
