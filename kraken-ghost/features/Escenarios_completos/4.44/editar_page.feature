@@ -2,7 +2,7 @@ Feature: Editar Page
 
 @user1 @web
 Scenario: Como admin edito una página
-  Given I navigate to page "<host>" "ghost/#/signin"
+  Given I navigate to page "<host4_44>" "ghost/#/signin"
   And I wait for 1 seconds
   And I login with "<Usuario1>" "<Password1>"
   And I wait for 1 seconds
@@ -24,7 +24,7 @@ Scenario: Como admin edito una página
 @user2 @web
 Scenario: Como usuario externo compruebo que la página fue editada
   Given I wait for a signal containing "page created" for 30 seconds
-  When I navigate to page "<host>" "<page_title_edit>"
+  When I navigate to page "<host4_44>" "<page_title_edit>"
   And I wait for 1 seconds
   And I check if the page was created with the name "<page_title_edit>"
   And I wait for 1 seconds
