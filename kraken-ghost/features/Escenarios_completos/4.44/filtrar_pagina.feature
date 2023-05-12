@@ -2,7 +2,7 @@ Feature: Crear Page Schedule
 
 @user1 @web
 Scenario: Como admin creo una página y la agendo
-  Given I navigate to page "<host>" "ghost/#/signin"
+  Given I navigate to page "<host4_44>" "ghost/#/signin"
   And I wait for 1 seconds
   And I login with "<Usuario1>" "<Password1>"
   And I wait for 1 seconds

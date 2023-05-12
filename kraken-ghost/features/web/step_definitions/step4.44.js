@@ -56,14 +56,14 @@ When('I create a page with {kraken-string} {kraken-string}', async function(titl
 });
 
 When('I publish it now', async function() {
-    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger");
+    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger");
     await elementPublishDropDown.click();
     let elementPublishButton = await this.driver.$(".gh-publishmenu-footer .gh-publishmenu-button");
     return await elementPublishButton.click();
 });
 
 When('I publish it schedule', async function() {
-    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger");
+    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger");
     await elementPublishDropDown.click();
     let elementSchedule = await this.driver.$(".gh-publishmenu-section div.gh-publishmenu-radio:nth-child(2) .gh-publishmenu-radio-content .gh-publishmenu-radio-label");
     await elementSchedule.click();
@@ -81,14 +81,14 @@ When('I edit the page with {kraken-string}', async function(newDescription) {
     let elementDescription = await this.driver.$(".koenig-editor__editor-wrapper");
     await elementDescription.click();
     await elementDescription.setValue(' '+ newDescription);
-    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger");
+    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger");
     await elementPublishDropDown.click();
     let elementPublishButton = await this.driver.$(".gh-publishmenu-footer .gh-publishmenu-button");
     return await elementPublishButton.click();
 });
 
 When('I click page settings', async function() {
-    let element = await this.driver.$("button.post-settings");
+    let element = await this.driver.$(".settings-menu-toggle");
     return await element.click();
 });
 
@@ -105,12 +105,12 @@ When('I click delete page modal', async function() {
 
 /* Check thens */
 Then('I check if the page was created with the name {kraken-string}', async function(title) {
-    let pageName = await this.driver.$("h1.post-full-title").getText();
+    let pageName = await this.driver.$("h1.article-title").getText();
     return expect(pageName).to.equal(title);
 });
 
 Then('I check if the page was edited with {kraken-string}', async function(descriptionEdit) {
-    let pageName = await this.driver.$("div.post-content p").getText();
+    let pageName = await this.driver.$("section.gh-content p").getText();
     return expect(pageName).to.contain(descriptionEdit);
 });
 
@@ -120,7 +120,7 @@ Then('I check if the page was deleted', async function() {
 });
 
 Then('I check if it is schedule', async function() {
-    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger");
+    let elementPublishDropDown = await this.driver.$(".ember-view.ember-basic-dropdown-trigger.gh-btn.gh-publishmenu-trigger");
     await elementPublishDropDown.click();
     let pageName = await this.driver.$("header.gh-publishmenu-heading").getText();
     return expect(pageName).to.contain('Will be published in');
@@ -132,7 +132,7 @@ Then('I check if Draft is first', async function() {
 });
 
 /* /Check thens */
-
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* END CREAR PAGINA FUNCIONALIDAD */
 
 When('I enter email {kraken-string}', async function (email) {
