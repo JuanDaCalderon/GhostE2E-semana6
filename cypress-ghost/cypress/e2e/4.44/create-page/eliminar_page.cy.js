@@ -8,7 +8,7 @@ let pageData = {
     description: faker.name.findName()
 }
 
-const nameScreenshots = 'eliminar_page_';
+const nameScreenshots = 'eliminar_page_p';
 
 describe('Crear page publicado', () => {
     it('Se crea una page publicada - se valida que este en la lista', () => {
@@ -42,12 +42,6 @@ describe('Crear page publicado', () => {
 
         // Then
         cy.get(".no-posts").should('exist');
-        /* cy.get(".no-posts").then(($el)=>{
-            cy.get(".no-posts-box").should('exist');
-        }).catch(error=>{
-            cy.get("h3.gh-content-entry-title").contains(pageData.title).should('not.exist');
-        }) */
-
     });
 
 })

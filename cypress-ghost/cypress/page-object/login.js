@@ -2,7 +2,7 @@ class loginPage {
   elements = {
     emailInput: () => cy.get('input[name="identification"]'),
     passwordInput: () => cy.get('input[name="password"]'),
-    loginBtn : () => cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]')
+    loginBtn : () => cy.get('button.login.gh-btn')
   }
 
   login(user, password) {
