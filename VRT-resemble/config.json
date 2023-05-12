@@ -1,0 +1,24 @@
+{
+    "V3_41_1": "3.41.1",
+    "V4_44": "4.44",
+    "browsers": [
+        "chromium"
+    ],
+    "options": {
+        "output": {
+            "errorColor": {
+                "red": 255,
+                "green": 0,
+                "blue": 255
+            },
+            "errorType": "movement",
+            "largeImageThreshold": 1200,
+            "useCrossOrigin": false,
+            "outputDiff": true
+        },
+        "scaleToSameSize": true,
+        "ignore": "antialiasing"
+    },
+    "viewportHeight": 600,
+    "viewportWidth": 800
+}

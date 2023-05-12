@@ -1,0 +1,14 @@
+{
+  "name": "pruebasresemble",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "vrt": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "resemblejs": "^4.1.0"
+  }
+}
