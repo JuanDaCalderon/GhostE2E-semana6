@@ -14,7 +14,7 @@ describe('invitar usuario', () => {
       cy.wait(2000)
 
       //And I click next
-      cy.get('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]').click()
+      cy.get('button[class="login gh-btn gh-btn-blue gh-btn-block gh-btn-icon ember-view"]').click()
       cy.wait(2000)
       cy.screenshot("invitar_usuario_p1");
 
