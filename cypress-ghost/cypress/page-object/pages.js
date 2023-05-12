@@ -23,11 +23,6 @@ class PagesPage {
         cy.wait(1000)
     }
 
-    goToListPageView() {
-        cy.wait(1000)
-        this.elements.navBarPageDriver().click();
-        cy.wait(1000)
-    }
     goToNewPage() {
         cy.wait(1000)
         this.elements.newPageButton().click();
