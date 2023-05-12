@@ -10,7 +10,7 @@ class PostsPage {
         publishOrScheduleModalButton: () => cy.get('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]'),
         publishCloseModalButon: () => cy.get('.gh-btn-outline'),
         
-        settingsPostMenu: () => cy.get('button.post-settings'),
+        settingsPostMenu: () => cy.get('button.settings-menu-toggle'),
         deleteButtonPostMenu: () => cy.get('button.settings-menu-delete-button'),
         deleteButtonModal: () => cy.get('.modal-content > .modal-footer > .gh-btn-red'),
 
