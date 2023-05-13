@@ -66,8 +66,8 @@ Desde la carpeta raiz del proyecto, `kraken_ghost`  :
  - Faker V7.6.0. Ejecutar en la terminal el comando `npm install @faker-js/faker --save-dev`
  - Chai V4.3.7. Ejecutar en la terminal el comando `npm install chai`
 * Desde la raiz del proyecto, en el archivo `properties.json` configurar los valores para Usuario1 y Password1
-* En la carpeta `features\Escenarios_completos` se encuentran los archivos .feature correspondients a los casos de prueba.
-* Para su ejecucion, de la carpeta `features\Escenarios_completos` mover el escenario deseado a la carpeta `.\features\`. Debe ser el unico en esta ubicacion.
+* En la carpeta `features\Escenarios_completos` se encuentran 2 carpetas. La 3.41.1 incluye los archivos .feature correspondiente a los escenarios modificados de la semana anterior. La 4.44 incluye los archivos .feature correspondientes a los escenarios ajustados en esta version de Ghost 
+* Para su ejecucion, de las carpetas mencionadas anteriormente mover el escenario deseado a la carpeta `.\features\`. Debe ser el unico en esta ubicacion.
 * Desde la raiz del proyecto Kraken ejecutar el comando `./node_modules/kraken-node/bin/kraken-node run`
 
 ## Cypress
@@ -86,9 +86,24 @@ Desde la carpeta raiz del proyecto, `cypress_ghost`  :
 ![image](https://user-images.githubusercontent.com/124101392/236691572-a8561b8a-e8e2-4aa6-b7ec-25a44f11a4de.png)
 * Seleccionar el navegador Chrome y hacer click en el boton Start E2E Testing in Chrome
 ![image](https://user-images.githubusercontent.com/124101392/236691553-aa01b58c-2099-47f2-8fbb-3ae422889d55.png)
-* En la ventana se mostraran los archivos correspondientes a los casos de prueba.
-![image](https://user-images.githubusercontent.com/124101392/236692105-1516e344-7398-47a9-8896-c0a39a4433aa.png)
+* En la ventana se mostraran los archivos agrupados por la version de Ghost correspondiente.
+![image](https://github.com/JuanDaCalderon/GhostE2E-semana6/assets/124101392/4c311e34-8abe-476d-90f4-f69c268041d9)
 * Elegir el que se desee ejecutar
+![image](https://github.com/JuanDaCalderon/GhostE2E-semana6/assets/124101392/acac23e1-03aa-4d4e-aabd-4e73b4b9264a)
+
+
+## Reporte HTML Comparacion visual
+
+Desde la raiz del proyecto, en el archivo `VRT-resemble\index.js` se encuentran la configuracion de los escenarios a los cuales se les realizara al prueba.
+
+En la carpeta `VRT-resemble\results` se encuentran los resultados para cada escenario donde se incluye el archivo `report.html` que muestra la imagen de la version 3.41.1 etiquetada como REFERENCE, la de la version 4.44 se etiqueta como Test y el resultante de la comparacion como DIFF
+<img width="908" alt="image" src="https://github.com/JuanDaCalderon/GhostE2E-semana6/assets/124101392/a643ba46-793f-499e-8f56-e013628a8ed6">
+<img width="880" alt="image" src="https://github.com/JuanDaCalderon/GhostE2E-semana6/assets/124101392/db63c958-c93c-4e51-a4f9-427f9d7ed095">
+
+## Reporte incidencias
+El registro de las diferencias visuales se encuentran en el siguinte link del repositorio:
+https://github.com/JuanDaCalderon/GhostE2E-semana6/issues
+
 
 ## Pros y contras de las dos herramientas utilizadas
 
