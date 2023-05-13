@@ -1,4 +1,6 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
+
 describe('edit info general', () => {
     it('Editar informacion titulo y descripcion de la pagina ', () => {
 

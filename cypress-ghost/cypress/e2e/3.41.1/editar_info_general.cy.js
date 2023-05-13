@@ -25,16 +25,18 @@ describe('edit info general', () => {
       cy.screenshot("editar_info_general_p2");
 
       //And I click Expand 
-      cy.get('button[data-ember-action-65="65"]').click()
+      cy.get('button[data-ember-action-74="74"]').click()
       cy.wait(2000)
       cy.screenshot("editar_info_general_p3");
 
       //And I enter name user
-      cy.get('#ember100').clear().type('pruebas automatizadas 3',{force: true})
+      //cy.get('button[class="form-group ember-view"]').clear().type('pruebas automatizadas 3',{force: true})
+      cy.contains('The name of your site').parent().find('input').clear().type('pruebas automatizadas 3',{force: true})
       cy.wait(2000)
 
       //And I entre description
-      cy.get('#ember102').clear().type('descripicio de pruebas automatizadas',{force: true})
+      //cy.get('button[class="description-container form-group ember-view"]').clear().type('descripicio de pruebas automatizadas',{force: true})
+      cy.contains('Used in your theme, meta data and search results').parent().find('input').clear().type('descripción de pruebas automatizadas',{force: true})
       cy.wait(2000)
       cy.screenshot("editar_info_general_p4");
 
@@ -44,7 +46,7 @@ describe('edit info general', () => {
       cy.screenshot("editar_info_general_p5");
 
       //And I click Expand 
-      cy.get('button[data-ember-action-65="65"]').click()
+      cy.get('button[data-ember-action-74="74"]').click()
       cy.wait(2000)
       cy.screenshot("editar_info_general_p6");
     })

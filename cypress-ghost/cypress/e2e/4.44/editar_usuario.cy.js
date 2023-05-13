@@ -1,4 +1,6 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
+
 describe('editar usuario', () => {
     it('Se hace editar al usuario', () => {
 

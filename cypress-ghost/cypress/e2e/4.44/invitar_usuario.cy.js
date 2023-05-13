@@ -1,4 +1,6 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
+
 describe('invitar usuario', () => {
     it('Se hace invitacion a un usuario', () => {
 
@@ -19,7 +21,8 @@ describe('invitar usuario', () => {
       cy.screenshot("invitar_usuario_p2");
 
       //And I click in invite people
-      cy.get('a[href="#/members/new/"]').click()
+      cy.get('a.gh-btn-primary[href="#/members/new/"]').click()
+      //cy.get('button[class="ember-view gh-btn gh-btn-primary"]').click()
       cy.wait(5000)
       cy.screenshot("invitar_usuario_p3");
 

@@ -1,4 +1,5 @@
 import configJson from '../../../config/config.json';
+import loginPage from "../../page-object/login";
 
 describe('revokar invitacion de usuario', () => {
     it('Se hace revokar invitacion de usuario', () => {
@@ -20,7 +21,7 @@ describe('revokar invitacion de usuario', () => {
       cy.screenshot("revoke_invitacion_p2");
 
       //And I click create invitacion
-      cy.get('a[href="#/members/new/"]').click()
+      cy.get('a.gh-btn-primary[href="#/members/new/"]').click()
       cy.wait(5000)
       cy.screenshot("revoke_invitacion_p3");
 
@@ -32,7 +33,8 @@ describe('revokar invitacion de usuario', () => {
       cy.screenshot("revoke_invitacion_p4");
 
       //And I click send invitation
-      cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click()
+      //cy.get('button[class="gh-btn gh-btn-primary gh-btn-icon ember-view"]').click()
+      cy.get('button.gh-btn-primary:contains("Save")').click()
       cy.wait(2000)
       cy.screenshot("revoke_invitacion_p5");
 
