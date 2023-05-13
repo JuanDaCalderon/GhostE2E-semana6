@@ -102,3 +102,19 @@ Desde la carpeta raiz del proyecto, `cypress_ghost`  :
 ||La inclusion del patron GivenWhenThen mediante el archivo .feature que permite el entedimiento de manera intuitiva por alguien que no este familiarizado con la programacion|No genera video de la ejecuion de las pruebas|
 ||La reutilizacion de codigo al hacer uso de steps que se pueden llamar multiples veces de manera facil |
 ||Los reportes generados son amigables y entendibles|
+
+
+
+## Pros y contras de las dos herramientas utilizadas para pruebas de regresion visula
+
+
+| Herramienta  | Pros | Contra |
+| ------------- |-------------|------|
+| Resemble JS   |Fácil integración se puede integrar fácilmente en un flujo de trabajo de pruebas existentes, y es compatible con diferentes frameworks de automatización de pruebas como Cypress |Sensibilidad a cambios insignificantes, Resemble.js puede detectar cambios menores en las imágenes que no tienen un impacto visual significativo, lo que puede generar falsas alarmas |
+|              | Comparación visual precisa Resemble.js utiliza algoritmos sofisticados para realizar comparaciones visuales precisas y detectar incluso los cambios más sutiles en los elementos visuales de una página web. | Configuración y mantenimiento, Al utilizar Resemble.js, podemos establecer una configuración adecuada y mantenerla a lo largo del tiempo
+||Personalización de la tolerancia podemos ajustar la tolerancia de similitud en las comparaciones visuales según las necesidades, lo que permite establecer un umbral específico para determinar el éxito de las pruebas|
+||Soporte multiplataforma, Resemble.js es compatible con diferentes sistemas operativos y navegadores web, lo que permite ejecutar pruebas de regresión visual en una amplia gama de entornos |Rendimiento, La comparación visual de imágenes puede ser intensiva en recursos, lo que puede afectar el rendimiento general de tus pruebas automatizadas.
+| Backstop JS  | Configuración sencilla, Backstop.js permite hacer configuración fácil. | Curva de aprendizaje inicial, requerio tiempo para familiarizarnos con las opciones y características de Backstop.js |
+||Captura automática de imágenes de referencia, Backstop.js permite capturar automáticamente imágenes de referencia y utilizarlas como puntos de comparación en las pruebas de regresión visual| Mantenimiento de las imágenes de referencia, Actualizar y mantener las imágenes de referencia utilizadas en Backstop.js puede ser un esfuerzo adicional a medida que evoluciona tu aplicación|
+|| Integración con herramientas de automatización, Backstop.js se puede integrar fácilmente con herramientas de automatización de pruebas como Selenium, Puppeteer y otras, lo que permite combinar pruebas de regresión visual con tus flujos de trabajo existentes |
+||Flexibilidad en las pruebas, Backstop.js ofrece la posibilidad de personalizar reglas y configuraciones para adaptarse a tus necesidades específicas de prueba visual|
