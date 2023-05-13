@@ -35,7 +35,7 @@ async function executeTestForEliminarTag() {
   if (!eliminar_tag.checkBrowsers()) return;
   return await eliminar_tag.compareImages();;
 }
-(async () => console.log(await executeTestForEliminartag()))();
+(async () => console.log(await executeTestForEliminarTag()))();
 
 // 5. Crear page
 async function executeTestForCrearPage() {
