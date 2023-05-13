@@ -18,9 +18,6 @@ https://github.com/JuanDaCalderon/GhostE2E-semana6
 - Staff
 - General settings
 
-## Notación Screenshots
-- {escenario}_p{xx}
-
 ## Escenarios de pruebas. Aplican para Kraken y Cypress
 
 1. Inicia sesion, crear un post y lo publica y valida que se adiciona a lista de post publicados.
